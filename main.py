@@ -54,17 +54,17 @@ def price(update, context):
             [InlineKeyboardButton(symbol, callback_data=f'price-{symbol}')] for symbol in supported_symbols
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        context.bot.send_message(chat_id=update.effective_chat.id, text='Choose a symbol:', reply_markup=reply_markup)
+        context.bot.send_message(chat_id=update.effective_chat.id, text='Виберіть криптовалюту', reply_markup=reply_markup)
     else:
         symbol = context.args[0].upper()
         if symbol not in supported_symbols:
-            context.bot.send_message(chat_id=update.effective_chat.id, text=f'Sorry, {symbol} is not supported.')
+            context.bot.send_message(chat_id=update.effective_chat.id, text=f'Вибачте, валютна пара {symbol} не пітримується.')
         else:
             try:
                 price = binance_client.get_symbol_ticker(symbol=symbol + 'USDT')['price']
-                update.callback_query.edit_message_text(f"Current price {symbol}: {float(price):.2f} USDT")
+                update.callback_query.edit_message_text(f"Поточна ціна {symbol}: {float(price):.2f} USDT")
             except BinanceAPIException as e:
-                update.callback_query.edit_message_text(f"Failed to get price for {symbol.upper()}: {e}")
+                update.callback_query.edit_message_text(f"Не зміг отримати поточну ціну для {symbol.upper()}: {e}")
 
 
 def button(update, context):
