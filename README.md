@@ -56,5 +56,5 @@ pip install -r requirements.txt
 Run the project:
 
 ```sh
-python3 manin.py
+python3 main.py
 ```
