@@ -1,6 +1,12 @@
 # Binance Crypto Bot
 Telegram bot for assisting in cryptocurrency trading on Binance.
 Displays current cryptocurrency price. Predicts price movement up or down in the next 30 minutes.
+The prediction function performs technical analysis based on the closing prices of the past 9 
+and 21 candle periods, and determines the probability of a price change up or down. This forecast is 
+valid for the next 30 minutes after receiving the data, as the function retrieves data at 30-minute 
+intervals (30-minute klines). For better forecast accuracy, longer-term data and other time intervals 
+can be used. However, it should be noted that predictions in financial markets are never entirely 
+accurate, as markets can move unexpectedly.
 
 ## Requirements:
 ```

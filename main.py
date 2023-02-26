@@ -30,7 +30,7 @@ bot = telegram.Bot(token=telegram_bot_token)
 updater = Updater(bot=bot, use_context=True)
 dispatcher = updater.dispatcher
 
-supported_symbols = ['BTC', 'BNB', 'ETH', 'SOL']
+supported_symbols = ['BTC', 'BNB', 'ETH', 'XRP', 'ADA', 'MATIC', 'DOGE', 'DOT', 'SOL']
 
 
 def start(update, context):
